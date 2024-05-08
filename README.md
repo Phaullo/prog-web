@@ -41,11 +41,13 @@ No arquivo `package.json`, crie um script para iniciar o servidor usando nodemon
 
 # Exemplo de arquivo .env
 
-# Variáveis de ambiente para o ambiente de desenvolvimento
+### Variáveis de ambiente para o ambiente de desenvolvimento
+
 NODE_ENV=development
 PORT=3000
 
-# Variáveis de ambiente para o banco de dados
+### Variáveis de ambiente para o banco de dados
+
 DB_HOST=seu-host
 DB_USERNAME=seu-usuario
 DB_PASSWORD=sua-senha
