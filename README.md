@@ -79,7 +79,7 @@ app.listen(port, () => {
 
 ## Contribuindo
 Sinta-se à vontade para contribuir com melhorias neste projeto. Basta seguir estes passos:
-1. Clone este repositório (`git clone https://github.com/SeuProjeto`).
+1. Clone este repositório (`git clone https://github.com/Phaullo/prog-web`).
 2. Crie um branch para sua feature (`git checkout -b feature/SuaFeature`).
 3. Faça commit de suas alterações (`git commit -am 'Adicionando nova feature'`).
 4. Faça push para o branch (`git push origin feature/SuaFeature`).
