@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/dbConfig');
+const Supermercado = require('./modeloSupermercado')
 
 const Produto = sequelize.define('Produto', {
   nome: {
@@ -11,5 +12,7 @@ const Produto = sequelize.define('Produto', {
     allowNull: false,
   },
 });
+Supermercado.hasMany(Produto);
+Produto.belongsTo(Supermercado);
 
 module.exports = Produto;

@@ -77,6 +77,115 @@ app.listen(port, () => {
 3. Execute `npm start` para iniciar o servidor.
 4. Acesse `http://localhost:3000` em seu navegador para verificar se o servidor está rodando.
 
+### API de Produtos
+
+#### Criar um Produto
+
+Endpoint:
+```
+POST /api/produtos
+```
+
+Descrição:
+Este endpoint é usado para criar um novo produto.
+
+Parâmetros:
+- `nome` (string, obrigatório): Nome do produto.
+- `preco` (float, obrigatório): Preço do produto.
+- `idSupermercado` (string, obrigatório): ID do Supermercado.
+
+Exemplo de solicitação:
+```json
+{
+  "nome": "Arroz",
+  "preco": 5.99,
+  "idSupermercado": 1
+}
+```
+
+#### Obter todos os Produtos
+
+Endpoint:
+```
+GET /api/produtos
+```
+
+Descrição:
+Este endpoint é usado para obter todos os produtos cadastrados.
+
+#### Obter um Produto específico
+
+Endpoint:
+```
+GET /api/produtos/:produtoId
+```
+
+Descrição:
+Este endpoint é usado para obter informações sobre um produto específico.
+
+Parâmetros:
+- `produtoId` (string, obrigatório): ID do produto.
+
+### API de Supermercados
+
+#### Criar um Supermercado
+
+Endpoint:
+```
+POST /api/supermercados
+```
+
+Descrição:
+Este endpoint é usado para criar um novo supermercado.
+
+Parâmetros:
+- `nome` (string, obrigatório): Nome do supermercado.
+- `localizacao` (string, obrigatório): Localização do supermercado.
+
+Exemplo de solicitação:
+```json
+{
+  "nome": "Supermercado ABC",
+  "localizacao": "Rua XYZ, 123"
+}
+```
+
+#### Obter todos os Supermercados
+
+Endpoint:
+```
+GET /api/supermercados
+```
+
+Descrição:
+Este endpoint é usado para obter todos os supermercados cadastrados.
+
+#### Obter um Supermercado específico
+
+Endpoint:
+```
+GET /api/supermercados/:supermercadoId
+```
+
+Descrição:
+Este endpoint é usado para obter informações sobre um supermercado específico.
+
+Parâmetros:
+- `supermercadoId` (string, obrigatório): ID do supermercado.
+
+#### Obter todos os Produtos de um Supermercado
+
+Endpoint:
+```
+GET /api/supermercados/:supermercadoId/produtos
+```
+
+Descrição:
+Este endpoint é usado para obter todos os produtos disponíveis em um supermercado específico.
+
+Parâmetros:
+- `supermercadoId` (string, obrigatório): ID do supermercado.
+
 ## Contribuindo
 Sinta-se à vontade para contribuir com melhorias neste projeto. Basta seguir estes passos:
 1. Clone este repositório (`git clone https://github.com/Phaullo/prog-web`).

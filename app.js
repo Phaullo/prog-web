@@ -1,14 +1,12 @@
 const express = require('express');
 const app = express();
-const rotasProduto = require('./src/routes/rotasProduto');
-const rotasSupermercado = require('./src/routes/rotasSupermercado');
+const rotas = require('./src/routes/rotas');
 const environments = require('./src/config/environments');
 
 app.use(express.json());
 
 // Rotas da API
-app.use('/api/produtos', rotasProduto);
-app.use('/api/supermercados', rotasSupermercado);
+app.use('/api', rotas);
 
 const PORTA = environments.PORTA;
 

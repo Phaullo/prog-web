@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const environments = {
     development: {
       DB_DIALECT: 'sqlite',
