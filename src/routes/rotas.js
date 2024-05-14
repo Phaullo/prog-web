@@ -5,7 +5,8 @@ const controladorSupermercado = require('../controllers/controladorSupermercado'
 
 router.post('/produtos', controladorProduto.criarProduto);
 router.get('/produtos', controladorProduto.obterProdutos);
-router.get('/produtos/:produtoId', controladorProduto.obterProduto);
+router.get('/produto', controladorProduto.obterProduto);
+router.put('/produto', controladorProduto.editarProduto);
 
 router.post('/supermercados', controladorSupermercado.criarSupermercado);
 router.get('/supermercados', controladorSupermercado.obterSupermercados);

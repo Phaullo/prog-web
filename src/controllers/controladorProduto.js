@@ -2,6 +2,7 @@ const Produto = require('../models/modeloProduto');
 const Supermercado = require('../models/modeloSupermercado')
 const criarProduto = async (req, res) => {
   try {
+    console.log('req', req.body)
     const idSupermercado = req.body.idSupermercado;
     const { nome, preco } = req.body;
 
@@ -20,18 +21,40 @@ const criarProduto = async (req, res) => {
 
 const obterProduto = async (req, res) => {
   try {
-    const idPproduto = req.params.produtoId;
 
-    if (!idPproduto) throw new Error('ID do produto é obrigatório');
+    const idProduto = req.body.idProduto;
+    const nomeProduto = req.body.nome
 
-    const produto = await Produto.findByPk(idPproduto);
-    res.json(produto);
+    if (!idProduto && !nomeProduto) throw new Error('ID do produto ou Nome é obrigatório');
 
+    if (idProduto) {
+      const produto = await Produto.findByPk(idProduto)
+      res.json(produto);
+    }else if(nomeProduto){
+      const produto = await Produto.findOne({ where: { nome: nomeProduto } });
+      res.json(produto);
+    } 
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
+const editarProduto = async (req, res) => {
+  try {
+    const {idProduto, nomeProduto, precoProduto} = req.body;
+
+    if (!idProduto && !nomeProduto && !precoProduto) throw new Error('Campos obrigatorios não foram preenchidos');
+    const produto = await Produto.findByPk(idProduto);
+
+    if (!produto) throw new Error('Produto não encontrado');
+
+    produto.update({ nome: nomeProduto, preco: precoProduto  })
+
+    res.status(201).json(produto);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
 const obterProdutos = async (req, res) => {
   try {
@@ -42,4 +65,4 @@ const obterProdutos = async (req, res) => {
   }
 };
 
-module.exports = { criarProduto , obterProdutos, obterProduto}
+module.exports = { criarProduto , obterProdutos, obterProduto, editarProduto}
