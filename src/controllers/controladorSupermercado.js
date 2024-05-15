@@ -45,4 +45,43 @@ const obterProdutosSupermercados = async (req, res) => {
   }
 }
 
-module.exports = { obterSupermercados, obterSupermercado , criarSupermercado, obterProdutosSupermercados}
+const editarSupermercado = async (req, res) => {
+  try {
+    const {idMercado, nomeMercado, enderecoMercado} = req.body;
+
+    if (!idMercado && !nomeMercado && !enderecoMercado) throw new Error('Campos obrigatorios não foram preenchidos');
+    const mercado = await Supermercado.findByPk(idMercado);
+
+    if (!mercado) throw new Error('Mercado não encontrado');
+
+    mercado.update({ nome: nomeMercado, localizacao: enderecoMercado  })
+
+    res.status(201).json(mercado);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const apagarSupermercado = async (req, res) => {
+  try {
+    const {idMercado} = req.body;
+
+    if (!idMercado) throw new Error('ID é obrigatorio');
+    const mercado = await Supermercado.findByPk(idMercado);
+
+    if (!mercado) throw new Error('Mercado não encontrado');
+
+    mercado.destroy({
+      where: {
+        id: idMercado,
+      },
+    });
+    
+    res.status(201).json(mercado);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+
+module.exports = { obterSupermercados, obterSupermercado , criarSupermercado, obterProdutosSupermercados, editarSupermercado, apagarSupermercado}

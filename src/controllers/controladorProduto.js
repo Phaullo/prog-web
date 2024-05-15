@@ -1,8 +1,8 @@
 const Produto = require('../models/modeloProduto');
 const Supermercado = require('../models/modeloSupermercado')
+
 const criarProduto = async (req, res) => {
   try {
-    console.log('req', req.body)
     const idSupermercado = req.body.idSupermercado;
     const { nome, preco } = req.body;
 
@@ -39,6 +39,26 @@ const obterProduto = async (req, res) => {
   }
 };
 
+const apagarProduto = async (req, res) => {
+  try {
+    const {idProduto} = req.body;
+
+    if (!idProduto) throw new Error('ID é obrigatorio');
+    const produto = await Produto.findByPk(idProduto);
+
+    if (!produto) throw new Error('Produto não encontrado');
+
+    produto.destroy({
+      where: {
+        id: idProduto,
+      },
+    });
+    
+    res.status(201).json(produto);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 const editarProduto = async (req, res) => {
   try {
     const {idProduto, nomeProduto, precoProduto} = req.body;
@@ -65,4 +85,4 @@ const obterProdutos = async (req, res) => {
   }
 };
 
-module.exports = { criarProduto , obterProdutos, obterProduto, editarProduto}
+module.exports = { criarProduto , obterProdutos, obterProduto, editarProduto, apagarProduto}
