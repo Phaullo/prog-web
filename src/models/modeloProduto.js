@@ -11,6 +11,13 @@ const Produto = sequelize.define('Produto', {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
+  codigo_barras:{
+    type: DataTypes.NUMBER,
+    allowNull: false,
+  },
+  imagem: {
+    type: DataTypes.STRING,
+  }
 });
 Supermercado.hasMany(Produto);
 Produto.belongsTo(Supermercado);

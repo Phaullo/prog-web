@@ -7,7 +7,6 @@ router.post('/produto', controladorProduto.criarProduto);
 router.get('/produto', controladorProduto.obterProduto);
 router.put('/produto', controladorProduto.editarProduto);
 router.delete('/produto', controladorProduto.apagarProduto);
-router.get('/produtos', controladorProduto.obterProdutos);
 
 router.post('/supermercado', controladorSupermercado.criarSupermercado);
 router.get('/supermercado', controladorSupermercado.obterSupermercado);

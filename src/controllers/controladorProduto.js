@@ -3,15 +3,14 @@ const Supermercado = require('../models/modeloSupermercado')
 
 const criarProduto = async (req, res) => {
   try {
-    const idSupermercado = req.body.idSupermercado;
-    const { nome, preco } = req.body;
+    const { nome, preco, codigo_barras, imagem, idSupermercado } = req.body;
 
     if (!idSupermercado) throw new Error('ID do supermercado é obrigatório');
 
     const supermercado = await Supermercado.findByPk(idSupermercado);
     if (!supermercado) throw new Error('Supermercado não encontrado');
 
-    const novoProduto = await Produto.create({ nome, preco, SupermercadoId: idSupermercado });
+    const novoProduto = await Produto.create({ nome, preco, codigo_barras, imagem, SupermercadoId: idSupermercado });
 
     res.status(201).json(novoProduto);
   } catch (error) {
@@ -23,9 +22,7 @@ const obterProduto = async (req, res) => {
   try {
 
     const idProduto = req.body.idProduto;
-    const nomeProduto = req.body.nome
-
-    if (!idProduto && !nomeProduto) throw new Error('ID do produto ou Nome é obrigatório');
+    const nomeProduto = req.body.nomeProduto
 
     if (idProduto) {
       const produto = await Produto.findByPk(idProduto)
@@ -33,7 +30,10 @@ const obterProduto = async (req, res) => {
     }else if(nomeProduto){
       const produto = await Produto.findOne({ where: { nome: nomeProduto } });
       res.json(produto);
-    } 
+    }else{
+      const produtos = await Produto.findAll();
+      res.json(produtos);
+    }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -68,7 +68,10 @@ const editarProduto = async (req, res) => {
 
     if (!produto) throw new Error('Produto não encontrado');
 
-    produto.update({ nome: nomeProduto, preco: precoProduto  })
+    produto.update({ 
+      nome: nomeProduto || produto.nome, 
+      preco: precoProduto || produto.preco 
+    })
 
     res.status(201).json(produto);
   } catch (error) {
@@ -76,13 +79,4 @@ const editarProduto = async (req, res) => {
   }
 };
 
-const obterProdutos = async (req, res) => {
-  try {
-    const produtos = await Produto.findAll();
-    res.json(produtos);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-module.exports = { criarProduto , obterProdutos, obterProduto, editarProduto, apagarProduto}
+module.exports = { criarProduto , obterProduto, editarProduto, apagarProduto}
