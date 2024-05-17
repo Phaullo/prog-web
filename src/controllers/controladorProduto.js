@@ -44,6 +44,7 @@ const apagarProduto = async (req, res) => {
     const {idProduto} = req.body;
 
     if (!idProduto) throw new Error('ID é obrigatorio');
+    
     const produto = await Produto.findByPk(idProduto);
 
     if (!produto) throw new Error('Produto não encontrado');

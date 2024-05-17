@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controladorProduto = require('../controllers/controladorProduto');
 const controladorSupermercado = require('../controllers/controladorSupermercado');
-
+const controladorListaDeCompras = require ('../controllers/controladorListaDeCompras')
 router.post('/produto', controladorProduto.criarProduto);
 router.get('/produto', controladorProduto.obterProduto);
 router.put('/produto', controladorProduto.editarProduto);
@@ -17,5 +17,6 @@ router.get('/supermercados', controladorSupermercado.obterSupermercados);
 router.get('/supermercados/:supermercadoId', controladorSupermercado.obterSupermercado);
 router.get('/supermercados/:supermercadoId/produtos', controladorSupermercado.obterProdutosSupermercados);
 
+router.get('/lista', controladorListaDeCompras.obterProdutosLista);
 
 module.exports = router;
