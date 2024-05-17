@@ -14,12 +14,11 @@ const Produto = sequelize.define('Produto', {
   codigo_barras:{
     type: DataTypes.NUMBER,
     allowNull: false,
+    unique: true,
   },
   imagem: {
     type: DataTypes.STRING,
   }
 });
-Supermercado.hasMany(Produto);
-Produto.belongsTo(Supermercado);
 
 module.exports = Produto;

@@ -3,6 +3,8 @@ const router = express.Router();
 const controladorProduto = require('../controllers/controladorProduto');
 const controladorSupermercado = require('../controllers/controladorSupermercado');
 const controladorListaDeCompras = require ('../controllers/controladorListaDeCompras')
+const controladorRelacaoProdSuper = require('../controllers/controladorRelacaoProdSuper')
+
 router.post('/produto', controladorProduto.criarProduto);
 router.get('/produto', controladorProduto.obterProduto);
 router.put('/produto', controladorProduto.editarProduto);
@@ -15,7 +17,9 @@ router.delete('/supermercado', controladorSupermercado.apagarSupermercado);
 
 router.get('/supermercados', controladorSupermercado.obterSupermercados);
 router.get('/supermercados/:supermercadoId', controladorSupermercado.obterSupermercado);
-router.get('/supermercados/:supermercadoId/produtos', controladorSupermercado.obterProdutosSupermercados);
+
+router.post('/supermercados/:supermercadoId/produtos', controladorRelacaoProdSuper.criarProdSupermercado);
+router.get('/supermercados/:supermercadoId/produtos', controladorRelacaoProdSuper.obterProdutosSupermercados);
 
 router.get('/lista', controladorListaDeCompras.obterProdutosLista);
 

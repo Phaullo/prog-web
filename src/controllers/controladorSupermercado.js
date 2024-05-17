@@ -32,19 +32,6 @@ const obterSupermercado = async (req, res) => {
   }
 };
 
-const obterProdutosSupermercados = async (req, res) => {
-  try {
-    const supermercadoId = req.params.supermercadoId;
-
-    const supermercado = await Supermercado.findByPk(supermercadoId, { include: Produto });
-    if (!supermercado) throw new Error('Supermercado não encontrado');
-
-    res.json(supermercado.Produtos);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-}
-
 const editarSupermercado = async (req, res) => {
   try {
     const {idMercado, nomeMercado, enderecoMercado} = req.body;
@@ -84,4 +71,4 @@ const apagarSupermercado = async (req, res) => {
 };
 
 
-module.exports = { obterSupermercados, obterSupermercado , criarSupermercado, obterProdutosSupermercados, editarSupermercado, apagarSupermercado}
+module.exports = { obterSupermercados, obterSupermercado , criarSupermercado, editarSupermercado, apagarSupermercado}
