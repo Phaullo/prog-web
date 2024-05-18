@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/dbConfig');
-const Supermercado = require('./modeloSupermercado')
 
 const Produto = sequelize.define('Produto', {
   nome: {
@@ -8,18 +7,26 @@ const Produto = sequelize.define('Produto', {
     allowNull: false,
   },
   preco: {
-    type: DataTypes.FLOAT,
+    type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  codigo_barras:{
-    type: DataTypes.NUMBER,
+  codigo_barras: {
+    type: DataTypes.BIGINT,
     allowNull: false,
+    unique: true,
+  },
+  quantidade: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  descricao: {
+    type: DataTypes.TEXT,
+    allowNull: true,
   },
   imagem: {
     type: DataTypes.STRING,
+    allowNull: true,
   }
 });
-Supermercado.hasMany(Produto);
-Produto.belongsTo(Supermercado);
 
 module.exports = Produto;
