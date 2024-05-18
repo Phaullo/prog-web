@@ -1,12 +1,10 @@
 const Produto = require('../models/modeloProduto');
-const Supermercado = require('../models/modeloSupermercado')
 
 const criarProduto = async (req, res) => {
   try {
-    const { nome, preco, codigo_barras, imagem } = req.body;
+    const { nome, preco, codigo_barras, quantidade, descricao, imagem } = req.body;
 
-
-    const novoProduto = await Produto.create({ nome, preco, codigo_barras, imagem });
+    const novoProduto = await Produto.create({ nome, preco, codigo_barras, quantidade, descricao, imagemUrl: imagem });
 
     res.status(201).json(novoProduto);
   } catch (error) {

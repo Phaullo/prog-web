@@ -23,7 +23,7 @@ const Produto = sequelize.define('Produto', {
     type: DataTypes.TEXT,
     allowNull: true,
   },
-  imagem: {
+  imagemUrl: {
     type: DataTypes.STRING,
     allowNull: true,
   }
