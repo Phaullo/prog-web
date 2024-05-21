@@ -2,9 +2,9 @@ const Produto = require('../models/modeloProduto');
 
 const criarProduto = async (req, res) => {
   try {
-    const { nome, preco, codigo_barras, quantidade, descricao, imagem } = req.body;
+    const { nome, preco, codigo_barras, quantidade, descricao, imagemUrl } = req.body;
 
-    const novoProduto = await Produto.create({ nome, preco, codigo_barras, quantidade, descricao, imagemUrl: imagem });
+    const novoProduto = await Produto.create({ nome, preco, codigo_barras, quantidade, descricao, imagemUrl });
 
     res.status(201).json(novoProduto);
   } catch (error) {
