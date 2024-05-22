@@ -1,0 +1,245 @@
+{
+  "criarLote": true,
+  "lote": [
+    {
+      "nome": "Feijao",
+      "preco": 12.5,
+      "codigo_barras": "00001",
+      "quantidade": 100,
+      "descricao": "",
+      "imagemUrl": "./img/feijao1.webp"
+    },
+    {
+      "nome": "Arroz",
+      "preco": 10.0,
+      "codigo_barras": "00002",
+      "quantidade": 80,
+      "descricao": "",
+      "imagemUrl": "./img/arroz1.webp"
+    },
+    {
+      "nome": "Macarrao",
+      "preco": 8.0,
+      "codigo_barras": "00003",
+      "quantidade": 120,
+      "descricao": "",
+      "imagemUrl": "./img/macarrao1.webp"
+    },
+    {
+      "nome": "Farinha de Trigo",
+      "preco": 6.5,
+      "codigo_barras": "00004",
+      "quantidade": 90,
+      "descricao": "",
+      "imagemUrl": "./img/farinha_trigo1.webp"
+    },
+    {
+      "nome": "Açúcar",
+      "preco": 7.0,
+      "codigo_barras": "00005",
+      "quantidade": 110,
+      "descricao": "",
+      "imagemUrl": "./img/acucar1.webp"
+    },
+    {
+      "nome": "Óleo de Soja",
+      "preco": 9.0,
+      "codigo_barras": "00006",
+      "quantidade": 70,
+      "descricao": "",
+      "imagemUrl": "./img/oleo_soja1.webp"
+    },
+    {
+      "nome": "Sal",
+      "preco": 2.5,
+      "codigo_barras": "00007",
+      "quantidade": 150,
+      "descricao": "",
+      "imagemUrl": "./img/sal1.webp"
+    },
+    {
+      "nome": "Café",
+      "preco": 15.0,
+      "codigo_barras": "00008",
+      "quantidade": 60,
+      "descricao": "",
+      "imagemUrl": "./img/cafe1.webp"
+    },
+    {
+      "nome": "Leite",
+      "preco": 3.5,
+      "codigo_barras": "00009",
+      "quantidade": 200,
+      "descricao": "",
+      "imagemUrl": "./img/leite1.webp"
+    },
+    {
+      "nome": "Queijo",
+      "preco": 20.0,
+      "codigo_barras": "00010",
+      "quantidade": 40,
+      "descricao": "",
+      "imagemUrl": "./img/queijo1.webp"
+    },
+    {
+      "nome": "Presunto",
+      "preco": 18.0,
+      "codigo_barras": "00011",
+      "quantidade": 45,
+      "descricao": "",
+      "imagemUrl": "./img/presunto1.webp"
+    },
+    {
+      "nome": "Tomate",
+      "preco": 4.0,
+      "codigo_barras": "00012",
+      "quantidade": 75,
+      "descricao": "",
+      "imagemUrl": "./img/tomate1.webp"
+    },
+    {
+      "nome": "Cebola",
+      "preco": 3.0,
+      "codigo_barras": "00013",
+      "quantidade": 85,
+      "descricao": "",
+      "imagemUrl": "./img/cebola1.webp"
+    },
+    {
+      "nome": "Batata",
+      "preco": 2.0,
+      "codigo_barras": "00014",
+      "quantidade": 95,
+      "descricao": "",
+      "imagemUrl": "./img/batata1.webp"
+    },
+    {
+      "nome": "Cenoura",
+      "preco": 2.5,
+      "codigo_barras": "00015",
+      "quantidade": 100,
+      "descricao": "",
+      "imagemUrl": "./img/cenoura1.webp"
+    },
+    {
+      "nome": "Alface",
+      "preco": 3.0,
+      "codigo_barras": "00016",
+      "quantidade": 65,
+      "descricao": "",
+      "imagemUrl": "./img/alface1.webp"
+    },
+    {
+      "nome": "Maçã",
+      "preco": 6.0,
+      "codigo_barras": "00017",
+      "quantidade": 55,
+      "descricao": "",
+      "imagemUrl": "./img/maca1.webp"
+    },
+    {
+      "nome": "Banana",
+      "preco": 4.5,
+      "codigo_barras": "00018",
+      "quantidade": 120,
+      "descricao": "",
+      "imagemUrl": "./img/banana1.webp"
+    },
+    {
+      "nome": "Laranja",
+      "preco": 5.0,
+      "codigo_barras": "00019",
+      "quantidade": 80,
+      "descricao": "",
+      "imagemUrl": "./img/laranja1.webp"
+    },
+    {
+      "nome": "Uva",
+      "preco": 8.0,
+      "codigo_barras": "00020",
+      "quantidade": 70,
+      "descricao": "",
+      "imagemUrl": "./img/uva1.webp"
+    },
+    {
+      "nome": "Pão",
+      "preco": 4.0,
+      "codigo_barras": "00021",
+      "quantidade": 150,
+      "descricao": "",
+      "imagemUrl": "./img/pao1.webp"
+    },
+    {
+      "nome": "Manteiga",
+      "preco": 7.5,
+      "codigo_barras": "00022",
+      "quantidade": 90,
+      "descricao": "",
+      "imagemUrl": "./img/manteiga1.webp"
+    },
+    {
+      "nome": "Ovos",
+      "preco": 5.0,
+      "codigo_barras": "00023",
+      "quantidade": 100,
+      "descricao": "",
+      "imagemUrl": "./img/ovos1.webp"
+    },
+    {
+      "nome": "Iogurte",
+      "preco": 6.0,
+      "codigo_barras": "00024",
+      "quantidade": 80,
+      "descricao": "",
+      "imagemUrl": "./img/iogurte1.webp"
+    },
+    {
+      "nome": "Queijo Ralado",
+      "preco": 9.0,
+      "codigo_barras": "00025",
+      "quantidade": 60,
+      "descricao": "",
+      "imagemUrl": "./img/queijo_ralado1.webp"
+    },
+    {
+      "nome": "Molho de Tomate",
+      "preco": 5.0,
+      "codigo_barras": "00026",
+      "quantidade": 70,
+      "descricao": "",
+      "imagemUrl": "./img/molho_tomate1.webp"
+    },
+    {
+      "nome": "Biscoito",
+      "preco": 3.0,
+      "codigo_barras": "00027",
+      "quantidade": 120,
+      "descricao": "",
+      "imagemUrl": "./img/biscoito1.webp"
+    },
+    {
+      "nome": "Chocolate",
+      "preco": 7.0,
+      "codigo_barras": "00028",
+      "quantidade": 100,
+      "descricao": "",
+      "imagemUrl": "./img/chocolate1.webp"
+    },
+    {
+      "nome": "Cerveja",
+      "preco": 15.0,
+      "codigo_barras": "00029",
+      "quantidade": 50,
+      "descricao": "",
+      "imagemUrl": "./img/cerveja1.webp"
+    },
+    {
+      "nome": "Vinho",
+      "preco": 25.0,
+      "codigo_barras": "00030",
+      "quantidade": 40,
+      "descricao": "",
+      "imagemUrl": "./img/vinho1.webp"
+    }    
+  ]
+}

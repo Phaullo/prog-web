@@ -9,5 +9,6 @@ router.put('/produto', controladorProduto.editarProduto);
 router.delete('/produto', controladorProduto.apagarProduto);
 
 router.post('/pedido', controladorPedido.criarPedido);
+router.get('/pedido', controladorPedido.obterPedido);
 
 module.exports = router;

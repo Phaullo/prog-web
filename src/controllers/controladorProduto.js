@@ -2,11 +2,25 @@ const Produto = require('../models/modeloProduto');
 
 const criarProduto = async (req, res) => {
   try {
-    const { nome, preco, codigo_barras, quantidade, descricao, imagemUrl } = req.body;
+    const { nome, preco, codigo_barras, quantidade, descricao, imagemUrl, criarLote , lote } = req.body;
 
-    const novoProduto = await Produto.create({ nome, preco, codigo_barras, quantidade, descricao, imagemUrl });
+    if ( criarLote){
+      lote.forEach(async p => {
+        const novoProduto = await Produto.create({ 
+          nome: p.nome,
+          preco: p.preco,
+          codigo_barras: p.codigo_barras,
+          quantidade: p.quantidade,
+          descricao: p.descricao,
+          imagemUrl: p.imagemUrl 
+        });
+      });
+      res.status(201).json({"res": "ok"})
+    } else {
+      const novoProduto = await Produto.create({ nome, preco, codigo_barras, quantidade, descricao, imagemUrl });
+      res.status(201).json(novoProduto);
+    }
 
-    res.status(201).json(novoProduto);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -56,8 +70,9 @@ const apagarProduto = async (req, res) => {
 };
 const editarProduto = async (req, res) => {
   try {
-    const {idProduto, nomeProduto, precoProduto} = req.body;
+    const {idProduto, nomeProduto, precoProduto, codigo_barras, quantidade, descricao, imagemUrl} = req.body;
 
+    console.log('req.body',req.body)
     if (!idProduto && !nomeProduto && !precoProduto) throw new Error('Campos obrigatorios não foram preenchidos');
     const produto = await Produto.findByPk(idProduto);
 
@@ -65,7 +80,11 @@ const editarProduto = async (req, res) => {
 
     produto.update({ 
       nome: nomeProduto || produto.nome, 
-      preco: precoProduto || produto.preco 
+      preco: precoProduto || produto.preco,
+      codigo_barras: codigo_barras || produto.codigo_barras, 
+      quantidade: quantidade || produto.quantidade, 
+      descricao: descricao || produto.descricao, 
+      imagemUrl: imagemUrl || produto.imagemUrl
     })
 
     res.status(201).json(produto);
