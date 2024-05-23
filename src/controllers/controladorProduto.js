@@ -30,13 +30,13 @@ const obterProduto = async (req, res) => {
   try {
 
     const idProduto = req.body.idProduto;
-    const nomeProduto = req.body.nomeProduto
+    const nome = req.query.nome
 
     if (idProduto) {
       const produto = await Produto.findByPk(idProduto)
       res.json(produto);
-    }else if(nomeProduto){
-      const produto = await Produto.findOne({ where: { nome: nomeProduto } });
+    }else if(nome){
+      const produto = await Produto.findOne({ where: { nome: nome } });
       res.json(produto);
     }else{
       const produtos = await Produto.findAll();
