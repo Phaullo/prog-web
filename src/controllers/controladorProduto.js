@@ -1,4 +1,5 @@
 const Produto = require('../models/modeloProduto');
+const { Op } = require('sequelize');
 
 const criarProduto = async (req, res) => {
   try {
@@ -36,8 +37,8 @@ const obterProduto = async (req, res) => {
       const produto = await Produto.findByPk(idProduto)
       res.json(produto);
     }else if(nome){
-      const produto = await Produto.findOne({ where: { nome: nome } });
-      res.json(produto);
+      const produtos = await Produto.findAll({ where: { nome: { [Op.like]: `%${nome}%` } } });
+      res.json(produtos);
     }else{
       const produtos = await Produto.findAll();
       res.json(produtos);
