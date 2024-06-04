@@ -9,6 +9,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.get('/health', (req, res) => {
+  res.status(200).send('Servidor ativo e funcionando corretamente!');
+});
+
 // Rotas da API
 app.use('/api', rotas);
 
