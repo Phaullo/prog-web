@@ -4,15 +4,9 @@ const environments = require('./environments');
 const env = process.env.NODE_ENV || 'development';
 const configEnv = environments[env];
 
-const sequelize = new Sequelize({
+const connectionString = configEnv.DB_HOST
+const sequelize = new Sequelize(connectionString, {
   dialect: configEnv.DB_DIALECT,
-  storage: configEnv.DB_STORAGE,
-  logging: configEnv.DB_LOGGING,
-  host: configEnv.DB_HOST,
-  port: configEnv.DB_PORT,
-  username: configEnv.DB_USERNAME,
-  password: configEnv.DB_PASSWORD,
-  database: configEnv.DB_NAME
 });
 
 // A função SYNC só é recomendada para projetos na fase de testes, como por exemplo o uso do sqlite3
