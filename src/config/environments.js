@@ -13,6 +13,9 @@ const environments = {
     DB_PASSWORD: process.env.DB_PASSWORD || 'sua-senha',
     DB_NAME: process.env.DB_NAME || 'seu-banco-de-dados',
     DB_PORT: process.env.DB_PORT || 5432,
+    dialectOptions: {
+      ssl: true
+    }
     // outras opções de configuração, se necessário
   },
   PORTA: process.env.PORT || 3000,
